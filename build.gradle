@@ -36,8 +36,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	//flyway
-	implementation 'org.flywaydb:flyway-core'
-	implementation 'org.flywaydb:flyway-mysql'
+//	implementation 'org.flywaydb:flyway-core'
+//	implementation 'org.flywaydb:flyway-mysql'
 }
 
 tasks.named('test') {
