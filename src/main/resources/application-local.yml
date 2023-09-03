@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/NOTION
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
