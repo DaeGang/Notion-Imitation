@@ -1,10 +1,10 @@
-package com.daegang.notion.page.api.dto;
+package com.daegang.notion.article.api.dto;
 
 import lombok.Builder;
 
 
 // 예시
-public record PageDto() {
+public record ArticleDto() {
 
 
     public record PageRequsetDto(
