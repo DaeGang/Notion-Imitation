@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface ArticleRepository {
 
     Optional<Article> findById(String id);
-    List<Article> findChildrenByParentId(String id);
-    List<Article> findParentsByParentId(String id);
+    List<Article> findSubPagesByParentId(String id);
+    List<Article> findBreadCrumbsByParentId(String id);
 }

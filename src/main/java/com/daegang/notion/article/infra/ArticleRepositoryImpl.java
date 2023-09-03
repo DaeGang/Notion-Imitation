@@ -39,7 +39,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public List<Article> findChildrenByParentId(String id) {
+    public List<Article> findSubPagesByParentId(String id) {
         String sql = "SELECT * FROM ARTICLE WHERE parent_id = :article_id";
         return namedParameterJdbcTemplate.query(sql, generateParams(id), ARTICLES_ROW_MAPPER).stream()
                 .map(ArticleEntity::toDomain)
@@ -47,7 +47,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public List<Article> findParentsByParentId(String id) {
+    public List<Article> findBreadCrumbsByParentId(String id) {
         String sql = """
                 WITH RECURSIVE breadcrumbs AS (
                     SELECT article_id, title, parent_id

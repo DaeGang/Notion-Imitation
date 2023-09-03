@@ -15,36 +15,36 @@ public class Article {
     private String content;
     private String parentId;
 
-    private List<Article> children;
-    private List<Article> parents;
+    private List<Article> subPages;
+    private List<Article> breadCrumbs;
 
     @Builder
-    private Article(String id, String title, String content, String parentId, List<Article> children, List<Article> parents) {
+    private Article(String id, String title, String content, String parentId, List<Article> subPages, List<Article> breadCrumbs) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.parentId = parentId;
-        this.children = children;
-        this.parents = parents;
+        this.subPages = subPages;
+        this.breadCrumbs = breadCrumbs;
     }
 
     public boolean hasParent() {
         return !this.parentId.isBlank() && !this.parentId.equals("null");
     }
 
-    public void addChildren(List<Article> children) {
-        if(this.children == null) {
-            this.children = new ArrayList<>();
+    public void addSubPages(List<Article> subPages) {
+        if(this.subPages == null) {
+            this.subPages = new ArrayList<>();
         }
 
-        this.children.addAll(children);
+        this.subPages.addAll(subPages);
     }
 
-    public void addParents(List<Article> parents) {
-        if(this.parents == null) {
-            this.parents = new ArrayList<>();
+    public void addBreadCrumbs(List<Article> breadCrumbs) {
+        if(this.breadCrumbs == null) {
+            this.breadCrumbs = new ArrayList<>();
         }
 
-        this.parents.addAll(parents);
+        this.breadCrumbs.addAll(breadCrumbs);
     }
 }

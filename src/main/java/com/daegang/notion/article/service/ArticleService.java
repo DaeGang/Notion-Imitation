@@ -15,15 +15,15 @@ public class ArticleService {
 
     public Article getById(String id) {
         Article article = articleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
-        List<Article> children = articleRepository.findChildrenByParentId(article.getId());
-        article.addChildren(children);
+        List<Article> subPages = articleRepository.findSubPagesByParentId(article.getId());
+        article.addSubPages(subPages);
 
         if(!article.hasParent()) {
             return article;
         }
 
-        List<Article> parents = articleRepository.findParentsByParentId(article.getParentId());
-        article.addParents(parents);
+        List<Article> breadCrumbs = articleRepository.findBreadCrumbsByParentId(article.getParentId());
+        article.addBreadCrumbs(breadCrumbs);
 
         return article;
     }
