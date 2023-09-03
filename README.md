@@ -23,7 +23,8 @@ http://localhost:8080/pages/{pageId}
 ```
 
 ### Response
-![Response.jpg](..%2F..%2FDesktop%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-09-03%20%EC%98%A4%ED%9B%84%207.24.01.png)
+<img width="693" alt="Response.png" src="https://github.com/DaeGang/Notion-Imitation/assets/67828333/bd3249b2-30b9-4252-ba29-5df9458dee62">
+
 ```
 code: 프로젝트 고유의 결과 코드
 message: 결과 코드에 대응하는 메시지
