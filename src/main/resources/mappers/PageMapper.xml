@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanted.teamassignment1.dao.PageDao">
+    <select id="findById" resultType="com.wanted.teamassignment1.dto.PageDto">
+        select
+            *
+        from
+            page
+        <where>
+            <if test="pageId != null">AND page_id = #{pageId} </if>
+        </where>
+    </select>
+
+    <select id="findSubPages" resultType="com.wanted.teamassignment1.dto.PageDto">
+        select
+            *
+        from
+            page
+
+        <where>
+            <if test="pageId != null">AND parent_page = #{pageId} </if>
+        </where>
+    </select>
+</mapper>
