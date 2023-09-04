@@ -1,5 +1,6 @@
 package com.daegang.notion.article.service;
 
+import com.daegang.notion.article.dao.ArticleDao;
 import com.daegang.notion.article.domain.Article;
 import com.daegang.notion.article.infra.ArticleRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,8 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
 
+    private final ArticleDao articleDao;
+
     public Article getById(String id) {
         Article article = articleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
         List<Article> subPages = articleRepository.findSubPagesByParentId(article.getId());
@@ -22,7 +25,7 @@ public class ArticleService {
             return article;
         }
 
-        List<Article> breadCrumbs = articleRepository.findBreadCrumbsByParentId(article.getParentId());
+        List<String> breadCrumbs = articleDao.findBreadCrumbsByParentId(Long.parseLong(article.getParentId()));
         article.addBreadCrumbs(breadCrumbs);
 
         return article;

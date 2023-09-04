@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daegang.notion.article.dao.ArticleDao">
+    <select id="findBreadCrumbsByParentId" resultType="string">
+        WITH RECURSIVE breadcrumbs AS (
+            SELECT article_id, title, parent_id
+            FROM ARTICLE
+            WHERE article_id = #{article_id}
+            UNION ALL
+
+            SELECT a.article_id, a.title, a.parent_id
+            FROM ARTICLE a
+                     INNER JOIN breadcrumbs b ON a.article_id = b.parent_id
+        )
+
+        SELECT
+            title
+        FROM breadcrumbs
+        ORDER BY article_id DESC
+    </select>
+</mapper>

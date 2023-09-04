@@ -2,7 +2,6 @@ package com.daegang.notion.article.domain;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +15,10 @@ public class Article {
     private String parentId;
 
     private List<Article> subPages;
-    private List<Article> breadCrumbs;
+    private List<String> breadCrumbs;
 
     @Builder
-    private Article(String id, String title, String content, String parentId, List<Article> subPages, List<Article> breadCrumbs) {
+    private Article(String id, String title, String content, String parentId, List<Article> subPages, List<String> breadCrumbs) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -40,7 +39,7 @@ public class Article {
         this.subPages.addAll(subPages);
     }
 
-    public void addBreadCrumbs(List<Article> breadCrumbs) {
+    public void addBreadCrumbs(List<String> breadCrumbs) {
         if(this.breadCrumbs == null) {
             this.breadCrumbs = new ArrayList<>();
         }
