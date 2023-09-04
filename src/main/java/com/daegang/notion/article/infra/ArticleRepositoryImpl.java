@@ -46,31 +46,6 @@ public class ArticleRepositoryImpl implements ArticleRepository {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public List<Article> findBreadCrumbsByParentId(String id) {
-        String sql = """
-                WITH RECURSIVE breadcrumbs AS (
-                    SELECT article_id, title, parent_id
-                    FROM ARTICLE
-                    WHERE article_id = :article_id
-                    
-                    UNION ALL
-                    
-                    SELECT a.article_id, a.title, a.parent_id
-                    FROM ARTICLE a
-                    INNER JOIN breadcrumbs b ON a.article_id = b.parent_id
-                )
-                
-                SELECT *
-                FROM breadcrumbs
-                ORDER BY article_id DESC
-                """;
-
-        return namedParameterJdbcTemplate.query(sql, generateParams(id), ARTICLES_ROW_MAPPER).stream()
-                .map(ArticleEntity::toDomain)
-                .collect(Collectors.toList());
-    }
-
     private SqlParameterSource generateParams(String id) {
         return new MapSqlParameterSource()
                 .addValue("article_id", parseLong(id));

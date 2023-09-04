@@ -9,5 +9,5 @@ public interface ArticleRepository {
 
     Optional<Article> findById(String id);
     List<Article> findSubPagesByParentId(String id);
-    List<Article> findBreadCrumbsByParentId(String id);
+
 }
