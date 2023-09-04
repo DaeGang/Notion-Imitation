@@ -16,6 +16,6 @@
         SELECT
             title
         FROM breadcrumbs
-        ORDER BY article_id DESC
+        ORDER BY article_id ASC
     </select>
 </mapper>

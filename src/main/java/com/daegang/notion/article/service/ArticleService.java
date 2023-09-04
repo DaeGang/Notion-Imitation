@@ -24,8 +24,7 @@ public class ArticleService {
         if(!article.hasParent()) {
             return article;
         }
-
-        List<String> breadCrumbs = articleDao.findBreadCrumbsByParentId(Long.parseLong(article.getParentId()));
+        List<String> breadCrumbs = articleDao.findBreadCrumbsByParentId(Long.parseLong(article.getId()));
         article.addBreadCrumbs(breadCrumbs);
 
         return article;
