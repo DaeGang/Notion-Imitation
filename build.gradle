@@ -25,8 +25,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	//jdbc
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	// mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
 
 	//mysql driver
 	runtimeOnly 'com.mysql:mysql-connector-j'
