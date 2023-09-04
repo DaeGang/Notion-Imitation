@@ -20,6 +20,7 @@ http://localhost:8080/api/articles/{id}
 
 ### 응답
 ![image](https://github.com/DaeGang/Notion-Imitation/assets/60501504/6951fd68-d42c-4c8a-a8b4-9e801e36edc7)
+
 ![image](https://github.com/DaeGang/Notion-Imitation/assets/60501504/50bfbc5f-9888-4f2b-9a99-889c7e555900)
 
 
