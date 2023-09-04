@@ -9,17 +9,23 @@
 └── └── exception 예외
 ```
 
+## 테이블 구조
+![image](https://github.com/DaeGang/Notion-Imitation/assets/60501504/4167e9c2-2275-45ba-aade-7fd3d228f303)
+
+
 ## 게시글 조회 
 ```
 http://localhost:8080/api/articles/{id}
 ```
 
 ### 응답
-![응답값](https://github.com/DaeGang/Notion-Imitation/assets/58874665/05f844ba-6611-41c3-9470-32daa016d9bc)
+![image](https://github.com/DaeGang/Notion-Imitation/assets/60501504/c7cbefc1-60b6-47a4-b1ad-73d75cbf7317)
+
 ```
 id: 게시글 고유 ID
 title: 제목
 content: 본문
-children: subPage
-parents: breadcrumbs
+parentId : 상위 페이지 ID
+subPage: 하위페이지
+breadcrumbs: 브레드크럼즈
 ```
